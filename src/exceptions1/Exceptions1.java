@@ -28,6 +28,16 @@ public class Exceptions1 {
         else {
             Reservation reservation = new Reservation(number, checkIn, checkOut);
             System.out.println("Reservation: " + reservation);
+       
+            System.out.println("");
+            System.out.println("Enter date to update reservation: ");
+            System.out.println("Check-in Date (dd/MM/yyyy): ");
+            checkIn = sdf.parse(sc.next());
+            System.out.println("Check-out Date (dd/MM/yyyy): ");
+            checkOut = sdf.parse(sc.next());
+            
+            reservation.updateDates(checkIn, checkOut);
+            System.out.println("Reservation: " + reservation);
         }
         
         sc.close();
