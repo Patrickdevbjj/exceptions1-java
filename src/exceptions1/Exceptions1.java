@@ -22,19 +22,28 @@ public class Exceptions1 {
         System.out.println("Check-out Date (dd/MM/yyyy): ");
         Date checkOut = sdf.parse(sc.next());
         
+        if (checkOut.after(checkIn)) {
+            System.out.println("Error in reservation: checkOut date must be after");
+      
+        }
+        else {
+            Reservation reservation = new Reservation(number, checkIn,checkOut);
         
-       
             System.out.println("");
-            System.out.println("Enter date to update reservation: ");
-            System.out.println("Check-in Date (dd/MM/yyyy): ");
+            System.out.println("enter data to update the reservation: ");
+            System.out.println("Check in date (dd/MM/yyyy)");
             checkIn = sdf.parse(sc.next());
-            System.out.println("Check-out Date (dd/MM/yyyy): ");
+            System.out.println("Check Out date (dd/MM/yyyy)");
             checkOut = sdf.parse(sc.next());
             
-            reservation.updateDates(checkIn, checkOut);
-            System.out.println("Reservation: " + reservation);
-        }
-        
+            String error =  reservation.updateDates(checkIn, checkOut);
+            if (error != null )
+                System.out.println("Eror in Reservation: " + error);
+            else {
+                System.out.println("Reservation :" + reservation );
+            }
+    }
         sc.close();
+    
     }
 }
