@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 import model.entities.Reservation;
+import model.exceptions.DomainsExceptions;
 
 public class Exceptions1 {
 
@@ -37,6 +38,9 @@ public class Exceptions1 {
         }
         catch (ParseException e) {
             System.out.println("Invalid date format");
+        }
+        catch (DomainsExceptions e) {
+            System.out.println(e.getMessage() );
         }
         
         sc.close();
